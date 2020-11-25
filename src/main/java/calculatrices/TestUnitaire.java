@@ -1,189 +1,83 @@
 package calculatrices;
 
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
-public class TestUnitaire {
+import junit.framework.TestCase;
 
+public class TestUnitaire extends TestCase {
+   
 	Calculator calc=new Calculator();
 	//test sumition
-	@Test
-	public void testsum()
+	@Before
+	public void setUp()
 	{
-		
-		int a, b, res;
-		a = 5; 
-	    b  = 5;
-	        res = a + b;
-		if (calc.sum(a, b) != res) {
-			fail("a et b positif");
-	        }
-		a = 0; 
-	        b  = 5; 
-	        res = a + b;
-		if (calc.sum(a, b) != res) {
-			fail("a nul");
-	        }
-		a = 5; 
-	        b  = 0; 
-	        res = a + b;
-		if (calc.sum(a, b) != res) {
-			fail("b nul");
-	        }
-		a = 0; 
-	        b  = 0; 
-	        res = a + b;
-		if (calc.sum(a, b) != res) {
-			fail("a et b nuls");
-		}
+		calc=new Calculator();
 	}
-	//Test unitaire munis
 	@Test
-	public void tstMunis()
+	public void testSum()
 	{
-		int a,b,res;
-		a = 3; 
-	    b  = 3;
-	        res = a + b;
-		if (calc.sum(a, b) != res) {
-			fail("a et b positif");
-	        }
-		a = 0; 
-	        b  = 5; 
-	        res = a + b;
-		if (calc.sum(a, b) != res) {
-			fail("a nul");
-	        }
-		a = 5; 
-	        b  = 0; 
-	        res = a + b;
-		if (calc.sum(a, b) != res) {
-			fail("b nul");
-	        }
-		a = 0; 
-	        b  = 0; 
-	        res = a + b;
-		if (calc.sum(a, b) != res) {
-			fail("a et b nuls");
-	        }
-		a = -5; 
-	        b  = 5; 
-	        res = a + b;
-		if (calc.sum(a, b) != res) {
-			fail("a negatif");
-	        }
-		a = 5; 
-	        b  = -5; 
-	        res = a + b;
-		if (calc.sum(a, b) != res) {
-			fail("b negatif");
-	        }
-		a = -5; 
-	        b  = -5; 
-	        res = a + b;
-		if (calc.sum(a, b) != res) {
-			fail("a et b negatif");
-	        }
-	}
-	//Test unitaire mutiplication
-	@Test
-	public void testMulty()
-	{
-		int a,b,mult;
-		a=3;
-		b=3;
-		mult=a*b;
-		if(calc.multiply(a, b)!=mult)
+		int a=-4,b=4;
+		if(a<0 && b>0)
 		{
-			fail("Multiplication ok");
-		}
+			assertFalse("Vous ne pouvez appplique la somme dans ce cas",false);
 			
-	}
-	//Test unitaire divide
+		}
+		 assertEquals(5, calc.sum(3, 2));
+    }
+	//test soustraction
 	@Test
-	public final void testDivide() {
+	public void testMunis() {
+		int a=-2,b=3;
+		if((a<0 && b>0) || (a>0 && b<0))
+		{
+			assertFalse("Vous ne pouvez appplique la soustraction dans ce cas",false);
+			
+		}
+		assertEquals(8, calc.munis(12, 4));
+	}
+	//test multiplication
+	@Test
+	public void testMutilply() {
+		assertEquals(15, calc.multiply(3, 5));
+	}
+	//test devide
+	@Test
+	public void testdevide() {
+		int a=3,b=4;
+		if(a==0 || b==0 )
+		{
+			assertFalse("Division par zero impossible",false);
+		}
 		
-		int a, b, res;
-		a = 5; 
-	        b  = 5; 
-	        res = a / b;
-		if (calc.divide(a, b) != res) {
-			fail("a et b positif");
-	        }
-		a = 0; 
-	        b  = 5; 
-	        res = a / b;
-		if (calc.divide(a, b) != res) {
-			fail("a nul");
-	        }
-		a = -5; 
-	        b  = 5; 
-	        res = a / b;
-		if (calc.divide(a, b) != res) {
-			fail("a negatif");
-	        }
-		a = 5; 
-	        b  = -5; 
-	        res = a / b;
-		if (calc.divide(a, b) != res) {
-			fail("b negatif");
-	        }
-		a = -5; 
-	        b  = -5; 
-	        res = a / b;
-		if (calc.divide(a, b) != res) {
-			fail("a et b negatif");
-	        }
+		assertEquals(5, calc.divide(15, 3));
 	}
-	//Test minimum
+	//minimum
 	@Test
-	public void testMin()
-	{
-		int a = 0,b=5,min;
-		min=a;
-		if(calc.min(a, b)==b)
-		{
-			fail("Error");
-		}
-		a=6;
-		b=10;
-		min=a;
-		if(calc.min(a, b)==min) {
-		assertTrue("Le resultat est Ok",true);
-		}
-		a=5;
-		b=5;
-		min=a=b;
-		if(calc.min(a, b)>min)
-		{
-			fail("Les deux valeurs donne sont identique");
-		}
+	public void testMin(){
+		int min = calc.min(10,20);
+		if (min != 10) Assert.fail();
 	}
-	//Test max
-	public void testMax()
-	{
-		int a = 0,b=5,max;
-		max=a;
-		if(calc.max(a, b)==b)
-		{
-			fail("Error");
-		}
-		a=6;
-		b=10;
-		max=b;
-		if(calc.min(a, b)==max) {
-			assertTrue("Resultat OK",true);
-		}
-		a=5;
-		b=5;
-		max=a=b;
-		if(calc.min(a, b)>max)
-		{
-			fail("Les deux valeurs donne sont identique");
-		}
+   //max
+	@Test 
+	public void testMax(){
+		int max = calc.max(2000, -2000);
+		Assert.assertEquals(2000,max);
 	}
-	
+	//min tab
+	@Test
+	public void testMinElement(){
+		int tab[]= {2,0,8};
+		int min = calc.minElement(tab);
+		if (min != 0) Assert.fail();
+	}
+    //max tab
+	@Test 
+	public void testMaxElement(){
+		int tab[]= {2,1,5};
+		int max = calc.maxElement(tab);
+		if (max != 5) Assert.fail();
+	}
 
 }
