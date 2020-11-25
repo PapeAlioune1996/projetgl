@@ -6,10 +6,8 @@ public class Calculator {
   private int som;
 //Constructeur
 
-public Calculator(int a, int b) {
-	super();
-	this.a = a;
-	this.b = b;
+public Calculator() {
+	
 }
  ///methoode somme
 public int sum(int a, int b)
@@ -71,11 +69,41 @@ public int max(int a, int b)
 	return 0;
 	 
 }
-//
+//recherche du min dans le tableau
+ public int minElement(int[] list) 
+ {
+	 
+  
+	 int[] tab = {2,7,9,3};
+	 int min = Integer.MIN_VALUE;
+	 for(int i=0;i<list.length;i++)
+	 {
+		 if(tab[i]>min)
+		 {
+			 min=tab[i];
+		 }
+		 
+	 }
+	return min;
+ }
+//recherche du max dans le tableau
+public int maxElement(int[] list) 
+{
+	 int[] tab = {2,7,9,3};
+	 int max = Integer.MAX_VALUE;
+	 for(int i = 0; i < tab.length; i++){
+         if(tab[i] < max)
+           max = tab[i];
+       }
+	
+  
+  
+	return max;
+}
  
  public static void main(String[] args)
  {
-	 Calculator c=new Calculator(2, 3);
+	 Calculator c=new Calculator(2, 3);git 
 	int s= c.sum(4,5);
 	int d= c.munis(4,5);
 	int e= c.min(4,5);
