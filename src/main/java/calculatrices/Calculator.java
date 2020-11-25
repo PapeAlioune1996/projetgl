@@ -12,8 +12,8 @@ public Calculator() {
  ///methoode somme
 public int sum(int a, int b)
 {
+	int som = a+b;
 	
-	som=a+b;
 	return som;
 }
 ///methoode munis
@@ -26,9 +26,28 @@ public int munis(int a, int b)
 ///methoode division
 public int divide(int a, int b)
 {
-	
-	som=a/b;
-	return som;
+	if (b == 0) {
+		throw new ArithmeticException();
+        }
+	boolean resultEstNegatif = false;
+	int result = 0;
+	if ( a < 0) {
+		resultEstNegatif = !resultEstNegatif;
+		a = -a;
+	}
+	if ( b < 0) {
+		resultEstNegatif = !resultEstNegatif;
+		b = -b;
+	}
+	while (a > 0) {
+	        a = munis(a, b);
+		result++;
+	}
+	if (resultEstNegatif) {
+		result = -result;
+        }
+	return result;
+
 }
 ///methoode multiplication
 public int multiply(int a, int b)
@@ -75,10 +94,10 @@ public int max(int a, int b)
 	 
   
 	 int[] tab = {2,7,9,3};
-	 int min = Integer.MIN_VALUE;
+	 int min = tab[0];
 	 for(int i=0;i<list.length;i++)
 	 {
-		 if(tab[i]>min)
+		 if(tab[i]<min)
 		 {
 			 min=tab[i];
 		 }
@@ -90,9 +109,9 @@ public int max(int a, int b)
 public int maxElement(int[] list) 
 {
 	 int[] tab = {2,7,9,3};
-	 int max = Integer.MAX_VALUE;
+	 int max =tab[0];
 	 for(int i = 0; i < tab.length; i++){
-         if(tab[i] < max)
+         if(tab[i] > max)
            max = tab[i];
        }
 	
