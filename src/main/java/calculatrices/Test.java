@@ -9,8 +9,8 @@ public class Test {
 		int d= c.munis(4,5);
 		int p= c.multiply(4,5);
 		int div= c.divide(9,3);
-		int min= c.munis(4,5);
-		int max= c.munis(4,5);
+		int min= c.min(4,5);
+		int max= c.max(4,5);
 		int e= c. minElement(t);
 		int m= c. maxElement(t);
 		System.out.println("La somme est:"+s);
