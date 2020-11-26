@@ -7,9 +7,7 @@ public class Calculator {
   private int b;
   private int som;
 //Constructeur
-
 public Calculator() {
-	
 }
  ///methoode somme
 public int sum(int a, int b)
