@@ -1,6 +1,7 @@
 package calculatrices;
 
-public class Test {
+public class Main {
+
 	public static void main(String[] args)
 	 {
 		int[] t= {2,7,9,3};
@@ -22,4 +23,6 @@ public class Test {
 		System.out.println("Le minmum du tableau est:"+e);
 		System.out.println("Le maximum du tableau est:"+m);
 	 }
+
+
 }

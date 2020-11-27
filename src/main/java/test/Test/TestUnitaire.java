@@ -1,9 +1,10 @@
-package calculatrices;
+package test.Test;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import calculatrices.Calculator;
 import junit.framework.TestCase;
 
 public class TestUnitaire extends TestCase {
