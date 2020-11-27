@@ -7,7 +7,7 @@ import org.junit.Test;
 import calculatrices.Calculator;
 import junit.framework.TestCase;
 
-public class TestUnitaire extends TestCase {
+public class TestUnitaire {
    
 	Calculator calc=new Calculator();
 	//test sumition
@@ -19,40 +19,25 @@ public class TestUnitaire extends TestCase {
 	@Test
 	public void testSum()
 	{
-		int a=-4,b=4;
-		if(a<0 && b>0)
-		{
-			assertFalse("Vous ne pouvez appplique la somme dans ce cas",false);
-			
-		}
-		 assertEquals(5, calc.sum(3, 2));
+		
+		 Assert.assertEquals(5, calc.sum(3, 2));
     }
 	//test soustraction
 	@Test
 	public void testMunis() {
-		int a=-2,b=3;
-		if((a<0 && b>0) || (a>0 && b<0))
-		{
-			assertFalse("Vous ne pouvez appplique la soustraction dans ce cas",false);
-			
-		}
-		assertEquals(8, calc.munis(12, 4));
+		
+		Assert.assertEquals(8, calc.munis(12, 4));
 	}
 	//test multiplication
 	@Test
 	public void testMutilply() {
-		assertEquals(15, calc.multiply(3, 5));
+		Assert.assertEquals(15, calc.multiply(3, 5));
 	}
 	//test devide
 	@Test
 	public void testdevide() {
-		int a=3,b=4;
-		if(a==0 || b==0 )
-		{
-			assertFalse("Division par zero impossible",false);
-		}
 		
-		assertEquals(5, calc.divide(15, 3));
+		Assert.assertEquals(5, calc.divide(15, 3));
 	}
 	//minimum
 	@Test
